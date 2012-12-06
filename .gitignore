@@ -1,4 +1,10 @@
 
 # couch data files
 data/*
+couch.log
+couch.uri
+
+# node.js stuff
+node_modules/
+npm-debug.log
 
