@@ -29,10 +29,12 @@ admin:
 registry:
 	curl -X PUT http://$(ADMIN_USER):$(ADMIN_PASS)@$(COUCH_HOST):$(COUCH_PORT)/registry
 
-replicate:
-	replicate http://$(NPMORG_HOST):$(NPMORG_PORT)/registry \
+replicate: install registry
+	$(BIN)/replicate http://$(NPMORG_HOST):$(NPMORG_PORT)/registry \
 		http://$(COUCH_HOST):$(COUCH_PORT)/registry
 
-.PHONY: clean start default admin registry replicate
+couchapp: install registry
+	$(BIN)/couchapp push registry/app.js http://$(ADMIN_USER):$(ADMIN_PASS)@$(COUCH_HOST):$(COUCH_PORT)/registry
 
+.PHONY: clean start default admin registry replicate couchapp
 
