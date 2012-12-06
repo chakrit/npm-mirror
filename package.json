@@ -1,0 +1,25 @@
+{
+  "name": "npm-mirror",
+  "version": "0.1.0",
+  "description": "Simple collection of configuration, Makefile tasks and package.json to setup npm mirror locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chakrit/npm-mirror"
+  },
+  "keywords": [
+    "npm",
+    "mirror"
+  ],
+  "author": "Chakrit Wichian <service@chakrit.net> (http://chakrit.net)",
+  "license": "BSD",
+  "gitHead": "77395b7479d1f08aabfde8f7f43fa6ee73744fe6",
+  "dependencies": {
+    "semver": "~1.1.1",
+    "couchapp": "~0.9.1",
+    "replicate": "~0.2.0"
+  }
+}
