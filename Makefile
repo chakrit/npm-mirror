@@ -23,6 +23,8 @@ start:
 clean:
 	git clean -xdf
 
+setup: admin registry couchapp
+
 admin:
 	curl -X PUT http://$(COUCH_HOST):$(COUCH_PORT)/_config/admins/$(ADMIN_USER) -d '"$(ADMIN_PASS)"'
 
@@ -36,5 +38,5 @@ replicate: install registry
 couchapp: install registry
 	$(BIN)/couchapp push registry/app.js http://$(ADMIN_USER):$(ADMIN_PASS)@$(COUCH_HOST):$(COUCH_PORT)/registry
 
-.PHONY: clean start default admin registry replicate couchapp
+.PHONY: clean start default admin registry replicate couchapp setup
 
